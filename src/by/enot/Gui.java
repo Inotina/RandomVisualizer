@@ -26,10 +26,7 @@ public class Gui extends JFrame {
 		checkButton = new JButton("Check");
 		checkAutoButton = new JButton("AutoCheck");
 		clearCountButton = new JButton("Clear");
-		checkButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
+		checkButton.addActionListener((ActionEvent arg0) -> {
 				int chance =0;
 				int iter = 1;
 				try {
@@ -46,13 +43,8 @@ public class Gui extends JFrame {
 				if (result[2] != 0) infoLabel.setText("Great Success!");
 				else if (result[0] != 0) infoLabel.setText("Success!");
 				else infoLabel.setText("Fail.");
-			}
-
-		});
-		checkAutoButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			});
+		checkAutoButton.addActionListener((ActionEvent arg0) -> {
 				int chance = 0;
 				int iter = 0;
 				try {
@@ -74,14 +66,9 @@ public class Gui extends JFrame {
 				int[] result = testLuck(chance, iter);
 				updateCounters(result);
 				updateResultInfo();
-			}
-
-		});
+			});
 		
-		clearCountButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
+		clearCountButton.addActionListener((ActionEvent arg0) -> {
 				luckCount = 0;
 				noLuckCount = 0;
 				superLuckCount = 0;
@@ -92,10 +79,7 @@ public class Gui extends JFrame {
 				infoLabel.setText("Input %");
 				inputChance.requestFocus();
 				updateResultInfo();
-
-			}
-			
-		});
+			});
 		infoLabel = new JLabel("Input %");
 		infoAutoLabel = new JLabel("Number of tries");
 		luckAndUnluckLabel = new JLabel("Lucky: " + luckCount + "   UnLucky: " + noLuckCount);
